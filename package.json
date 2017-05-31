@@ -1,0 +1,10 @@
+{
+  "name": "wallaby-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dave Cooper <dave.cooper@ovoenergy.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jasmine": "^2.6.0"
+  }
+}
