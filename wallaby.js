@@ -1,15 +1,27 @@
-module.exports = function(wallaby) {
+'use strict';
+
+var wallabyWebpack = require('wallaby-webpack');
+var webpackPostprocessor = wallabyWebpack({});
+
+module.exports = function (wallaby) {
+
   return {
     files: [
-      { pattern: 'calculator.js' }
+      { pattern: 'src/**/*.js', load: false }
     ],
 
     tests: [
-      { pattern: 'calculator.spec.js' }
+      { pattern: 'test/**/*.spec.js', load: false }
     ],
 
-    testFramework: 'jasmine',
+    compilers: {
+      '**/*.js': wallaby.compilers.babel()
+    },
 
-    debug: true
-  }
+    postprocessor: webpackPostprocessor,
+
+    setup: function () {
+      window.__moduleBundler.loadTests();
+    }
+  };
 };

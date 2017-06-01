@@ -14,4 +14,4 @@ export default class Calculator {
   multiply(first, second) {
     return first * second;
   }
-}
+};
